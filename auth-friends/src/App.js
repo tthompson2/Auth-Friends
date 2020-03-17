@@ -5,9 +5,11 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
+import FriendAuth from "./components/FriendAuth";
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -22,9 +24,22 @@ function App() {
         >
           Learn React
         </a>
-        <Login />
+        <ul>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to='/protected'>Protected Page</Link>
+          </li>
+        </ul>
+        <Switch>
+          <PrivateRoute exact path="/protected" component={FriendAuth}/>
+          <Route path="/login" component={Login} />
+          <Route component={Login}/>
+        </Switch>
       </header>
     </div>
+    </Router>
   );
 }
 

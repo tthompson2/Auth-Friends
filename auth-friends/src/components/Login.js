@@ -39,19 +39,19 @@ class Login extends React.Component {
             <div>
                 <form onSubmit={this.login}>
                     <input
-                    
-                     type="text"
-                     name="username"
-                     value={this.state.creditials.password}
-                     onChange={this.handleChange}
+
+                        type="text"
+                        name="username"
+                        value={this.state.creditials.username}
+                        onChange={this.handleChange}
                     />
 
-                    <input 
-                    
-                    type="password"
-                    name="password"
-                    value={this.state.creditials.password}
-                    onChange={this.handleChange}
+                    <input
+
+                        type="password"
+                        name="password"
+                        value={this.state.creditials.password}
+                        onChange={this.handleChange}
 
                     />
 

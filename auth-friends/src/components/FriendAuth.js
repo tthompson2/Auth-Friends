@@ -13,7 +13,7 @@ class FriendAuth extends React.Component {
 
     getData = () => {
         axiosWithAuth()
-        .get("")
+        .get("/friends")
         .then(res => {
             console.log(res);
             this.setState({
@@ -24,3 +24,5 @@ class FriendAuth extends React.Component {
     }
     
 }
+
+export default FriendAuth;
