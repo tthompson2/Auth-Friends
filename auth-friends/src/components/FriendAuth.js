@@ -3,26 +3,35 @@ import { axiosWithAuth } from "../utils/axioswithAuth";
 
 class FriendAuth extends React.Component {
 
-    state = {
-        friend : []
-    };
-
+    constructor() {
+        super()
+        this.state = {
+            friend: [],
+        };
+    }
     componentDidMount() {
         this.getData();
     }
 
     getData = () => {
         axiosWithAuth()
-        .get("/friends")
-        .then(res => {
-            console.log(res);
-            this.setState({
-                friend : 'test',// put data value from response here
-
+            .get("/friends")
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    friend: res.data.map(item => JSON.stringify(item))
+                  
+                })
             })
-        })
+    }
+
+    render() {
+        return <div>
+            {this.state.friend}
+        </div>
     }
     
+
 }
 
 export default FriendAuth;

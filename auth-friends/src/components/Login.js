@@ -10,6 +10,9 @@ class Login extends React.Component {
     };
 
     handleChange = e => {
+
+        e.preventDefault();
+
         this.setState({
             creditials: {
                 ...this.state.creditials,
@@ -19,7 +22,7 @@ class Login extends React.Component {
     };
 
     login = e => {
-        e.PreventDefault();
+        e.preventDefault();
 
         axiosWithAuth()
             .post("/login", this.state.creditials)
@@ -27,6 +30,7 @@ class Login extends React.Component {
                 console.log(res)
                 localStorage.setItem("token", res.data.payload);
                 this.props.history.push("/protected");
+                console.log(res);
             })
             .catch(err => {
                 console.log(err);
